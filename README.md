@@ -61,3 +61,39 @@ curl -v -u admin:password123 http://localhost:8080/v1/admin/dashboard
 ### 4. Access Denied (Wrong Role)
 Create a user with role `USER`, then try to access `admin/dashboard`.
 **Expected Response:** `403 Forbidden`
+
+## Postman Configuration
+
+### 1. Registration
+-   **Method**: `POST`
+-   **URL**: `http://localhost:8080/v1/auth/registration`
+-   **Body** (JSON):
+    ```json
+    {
+        "username": "admin",
+        "password": "password123",
+        "role": "ADMINISTRATOR"
+    }
+    ```
+
+### 2. Login
+-   **Method**: `POST`
+-   **URL**: `http://localhost:8080/v1/auth/login`
+-   **Body** (JSON):
+    ```json
+    {
+        "username": "admin",
+        "password": "password123"
+    }
+    ```
+
+### 3. Protected Dashboards (Requires Basic Auth)
+-   **Authorization**: Basic Auth (Username/Password)
+-   **Method**: `GET`
+
+| Role | Endpoint |
+| :--- | :--- |
+| **ADMINISTRATOR** | `http://localhost:8080/v1/admin/dashboard` |
+| **STAFF** | `http://localhost:8080/v1/staff/dashboard` |
+| **USER** | `http://localhost:8080/v1/user/dashboard` |
+
