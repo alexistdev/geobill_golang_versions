@@ -1,6 +1,8 @@
-# Verification Walkthrough
+# GeoBill Golang Versions for Backend
 
-The Go RBAC Backend application has been implemented.
+GeoBill is a billing software website tailored for those launching hosting businesses. It aims to provide a cost-effective alternative to expensive commercial hosting software. GeoBill is built using Angular 20 for the frontend and Java Spring Boot 3 for the backend.
+
+
 
 ## Prerequisites
 - MySQL Database running at `localhost:3306`
